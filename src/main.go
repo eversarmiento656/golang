@@ -67,6 +67,11 @@ func main() {
 	fmt.Println(dobleRetorno(3))
 	_, valor2 := dobleRetorno(5)
 	fmt.Println("valor 2 ->", valor2)
+
+	// For
+	ejemploFor()
+	ejemploForWhile()
+	ejemploForRange()
 }
 
 func imprimir(cadena string) {
@@ -83,4 +88,27 @@ func retornoValor(a int) int {
 
 func dobleRetorno(a int) (c, d int) {
 	return a, a * 2
+}
+
+func ejemploFor() {
+	fmt.Println("Ejemplo for")
+	for i := 0; i < 10; i++ {
+		fmt.Println(i)
+	}
+}
+
+func ejemploForWhile() {
+	fmt.Println("Ejemplo forWhile")
+	contador := 0
+	for contador < 10 {
+		fmt.Println(contador)
+		contador++
+	}
+}
+
+func ejemploForRange() {
+	lista := []int{1, 3, 5, 7, 9, 11}
+	for i, impar := range lista {
+		fmt.Printf("%d - %d\n", i, impar)
+	}
 }
