@@ -38,4 +38,24 @@ func main() {
 	fmt.Println("division: ", division)
 	fmt.Println("Modulo: ", x%y)
 
+	// Uso de fmt
+
+	var hello string = "hello"
+	var world string = "world"
+	fmt.Println(hello, world)
+
+	// Printf
+	meses := "Meses"
+	numMeses := 12
+	fmt.Printf("el año tiene %d %s\n", numMeses, meses)
+	fmt.Printf("el año tiene %v %v\n", numMeses, meses)
+
+	// SPrintf
+	message := fmt.Sprintf("el año tiene %d %s", numMeses, meses)
+	fmt.Println(message)
+
+	//Imprimir tipo de dato
+	fmt.Printf("meses: %T\n", meses)
+	fmt.Printf("numMeses: %T\n", numMeses)
+
 }
