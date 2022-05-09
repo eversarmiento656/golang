@@ -1,6 +1,10 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"log"
+	"strconv"
+)
 
 func main() {
 	// Declaración de constantes
@@ -72,6 +76,12 @@ func main() {
 	ejemploFor()
 	ejemploForWhile()
 	ejemploForRange()
+
+	// if
+	ifEjemplo()
+
+	//manejo de errores
+	ejemploManejoError()
 }
 
 func imprimir(cadena string) {
@@ -110,5 +120,21 @@ func ejemploForRange() {
 	lista := []int{1, 3, 5, 7, 9, 11}
 	for i, impar := range lista {
 		fmt.Printf("%d - %d\n", i, impar)
+	}
+}
+
+func ifEjemplo() {
+	valor := 2
+	if valor%2 == 0 {
+		fmt.Println("Es par")
+	} else {
+		fmt.Println("Es impar")
+	}
+}
+
+func ejemploManejoError() {
+	_, error := strconv.Atoi("perro")
+	if error != nil {
+		log.Fatal(error)
 	}
 }
