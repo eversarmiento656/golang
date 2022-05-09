@@ -85,6 +85,10 @@ func main() {
 
 	// switch
 	switchEjemplo()
+
+	//defer
+	defer fmt.Println("Adios")
+	fmt.Println("mundo")
 }
 
 func imprimir(cadena string) {
