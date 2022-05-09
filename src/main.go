@@ -58,4 +58,29 @@ func main() {
 	fmt.Printf("meses: %T\n", meses)
 	fmt.Printf("numMeses: %T\n", numMeses)
 
+	// Funciones
+	imprimir("Hola 1")
+	imprimir("Hola 2")
+	imprimir("Hola 3")
+	tripleArgumento(1, 2, "Hola")
+	fmt.Println(retornoValor(3))
+	fmt.Println(dobleRetorno(3))
+	_, valor2 := dobleRetorno(5)
+	fmt.Println("valor 2 ->", valor2)
+}
+
+func imprimir(cadena string) {
+	fmt.Println(cadena)
+}
+
+func tripleArgumento(a, b int, c string) {
+	fmt.Println(a, b, c)
+}
+
+func retornoValor(a int) int {
+	return a * 2
+}
+
+func dobleRetorno(a int) (c, d int) {
+	return a, a * 2
 }
