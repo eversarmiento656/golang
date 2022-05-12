@@ -6,6 +6,11 @@ import (
 	"strconv"
 )
 
+type car struct {
+	brand string
+	year  int
+}
+
 func main() {
 	// Declaración de constantes
 	const pi float64 = 3.14
@@ -127,6 +132,15 @@ func main() {
 	// Encontrar valor
 	value, ok := m["Jose"]
 	fmt.Println(value, ok)
+
+	// struct
+	myCar := car{brand: "ford", year: 2000}
+	fmt.Println(myCar)
+
+	var mycar2 car
+	mycar2.brand = "mercedez"
+	mycar2.year = 1999
+	fmt.Println(mycar2)
 }
 
 func imprimir(cadena string) {
