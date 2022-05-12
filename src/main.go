@@ -89,6 +89,44 @@ func main() {
 	//defer
 	defer fmt.Println("Adios")
 	fmt.Println("mundo")
+
+	// Array
+	var array [4]int
+	fmt.Println(array)
+	fmt.Println("tamaño -> ", len(array))
+	fmt.Println("capacidad -> ", cap(array))
+
+	//Slice
+	slice := []int{0, 1, 2, 3, 4, 5}
+	fmt.Println(slice, len(slice), cap(slice))
+
+	//slicing
+	fmt.Println(slice[0:4])
+
+	// Append
+	slice = append(slice, 6)
+	fmt.Println(slice)
+
+	// unir slices
+	slice2 := []int{6, 7, 8, 9}
+	slice = append(slice, slice2...)
+	fmt.Println(slice)
+
+	// Maps
+	m := make(map[string]int)
+	m["Jose"] = 14
+	m["Pepito"] = 14
+	fmt.Println(m)
+
+	// recorrer un map
+
+	for i, v := range m {
+		fmt.Println(i, v)
+	}
+
+	// Encontrar valor
+	value, ok := m["Jose"]
+	fmt.Println(value, ok)
 }
 
 func imprimir(cadena string) {
