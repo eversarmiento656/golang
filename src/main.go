@@ -45,6 +45,18 @@ func main() {
 	fmt.Println(myPc)
 	myPc.duplicateRam()
 	fmt.Println(myPc)
+
+	//stringers
+	myPc2 := pc{
+		ram:   16,
+		disk:  1000,
+		marca: "msi",
+	}
+	fmt.Println(myPc2)
+}
+
+func (myPc pc) String() string {
+	return fmt.Sprintf("Tengo %d GB RAM, %d GB Disco y es una %s", myPc.ram, myPc.disk, myPc.marca)
 }
 
 func (myPC pc) ping() {
