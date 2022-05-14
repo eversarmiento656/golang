@@ -13,6 +13,19 @@ type pc struct {
 	marca string
 }
 
+type figuras interface {
+	area() float64
+}
+
+type cuadrado struct {
+	base float64
+}
+
+type rectangulo struct {
+	base   float64
+	altura float64
+}
+
 func main() {
 	var myCar mypackage.CarPublic
 	myCar.Brand = "Ferrari"
@@ -53,6 +66,23 @@ func main() {
 		marca: "msi",
 	}
 	fmt.Println(myPc2)
+
+	// area con strunct
+	c := cuadrado{base: 12}
+	calcular(c)
+
+	r := rectangulo{
+		base:   12,
+		altura: 3,
+	}
+	calcular(r)
+
+	//lista de interfaces
+	myInterface := []interface{}{
+		"Hola", 12, true, 4.90}
+
+	fmt.Println(myInterface)
+
 }
 
 func (myPc pc) String() string {
@@ -65,4 +95,16 @@ func (myPC pc) ping() {
 
 func (myPC *pc) duplicateRam() {
 	myPC.ram = myPC.ram * 2
+}
+
+func (c cuadrado) area() float64 {
+	return c.base * c.base
+}
+
+func (r rectangulo) area() float64 {
+	return r.base * r.altura
+}
+
+func calcular(f figuras) {
+	fmt.Println(f.area())
 }
