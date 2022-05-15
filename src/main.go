@@ -1,29 +1,37 @@
 package main
 
-import (
-	"fmt"
-	"sync"
-)
+import "fmt"
 
 func main() {
-	/*var wg sync.WaitGroup
-	fmt.Println("Hello")
-	wg.Add(1)
-	go say("world", &wg)
-	wg.Wait()*/
+	c := make(chan string, 2)
+	c <- "m1"
+	c <- "m2"
+	fmt.Println(len(c), cap(c))
 
-	//channel
-	c := make(chan string, 1)
-	fmt.Println("Hello")
-	go say2("Bye", c)
-	fmt.Println(<-c)
+	// Range y close
+	close(c)
+
+	for message := range c {
+		fmt.Println(message)
+	}
+
+	//select
+	email1 := make(chan string)
+	email2 := make(chan string)
+	go message("m1", email1)
+	go message("m2", email2)
+	for i := 0; i < 2; i++ {
+		select {
+		case m1 := <-email1:
+			fmt.Println("Email recibido de email1", m1)
+		case m2 := <-email2:
+			fmt.Println("Email recibido de email2", m2)
+		}
+
+	}
+
 }
 
-func say(message string, wg *sync.WaitGroup) {
-	defer wg.Done()
-	fmt.Println(message)
-}
-
-func say2(message string, c chan<- string) {
+func message(message string, c chan string) {
 	c <- message
 }
